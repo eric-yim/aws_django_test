@@ -25,7 +25,7 @@ SECRET_KEY = 'vwnf8tin5xxqy28+89@bz$plf(4h(h1%p78197=le@*qd5+jb@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aws-django-env.eba-pbdbyipb.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -72,11 +72,16 @@ WSGI_APPLICATION = 'aws_django.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+DB_PASS = os.environ['AWS_DB_PASSWORD']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': DB_PASS,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
