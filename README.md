@@ -28,6 +28,9 @@ Deploy.
 eb deploy
 ```
 
+AWS Needs libraries for psycopg2.
+https://github.com/jkehler/awslambda-psycopg2
+
 ===================================================================================
 To collect static files, add STATIC_ROOT to settings.py
 ```
