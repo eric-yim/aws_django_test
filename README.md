@@ -28,15 +28,14 @@ Deploy.
 eb deploy
 ```
 
-=====================================================================================
-To collect static files.
-Add STATIC_ROOT to settings.py
+===================================================================================
+To collect static files, add STATIC_ROOT to settings.py
 ```
 ...
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 ```
-Run following (within virtual environment)
+Run following (within virtual environment).
 ```
 (venv) ~/aws_django$ python manage.py collectstatic
 ```
