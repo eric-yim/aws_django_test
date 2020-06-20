@@ -1,5 +1,7 @@
 # aws_django
 
+Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres.
+
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html
 
 Requirement: Install Aws EB CLI
