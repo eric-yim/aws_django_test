@@ -23,13 +23,15 @@ ALLOWED_HOSTS = ['eb-django-app-dev.elasticbeanstalk.com']
 
 ```
 
+Note in requirements.txt use aws-psycopg2 rather than psycopg2
+https://pypi.org/project/aws-psycopg2/
+```
+aws-psycopg2
+```
 Deploy.
 ```
 eb deploy
 ```
-
-AWS Needs libraries for psycopg2.
-https://github.com/jkehler/awslambda-psycopg2
 
 ===================================================================================
 To collect static files, add STATIC_ROOT to settings.py
