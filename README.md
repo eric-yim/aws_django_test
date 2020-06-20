@@ -16,6 +16,7 @@ eb create aws-django-env
 ```
 
 Copy application location. Something like... eb-django-app-dev.elasticbeanstalk.com into aws_django/settings.py
+If you forget the host name, check it on aws.com > services > elastic beanstalk > environments
 ```
 ...
 ALLOWED_HOSTS = ['eb-django-app-dev.elasticbeanstalk.com']
@@ -25,4 +26,17 @@ ALLOWED_HOSTS = ['eb-django-app-dev.elasticbeanstalk.com']
 Deploy.
 ```
 eb deploy
+```
+
+=====================================================================================
+To collect static files.
+Add STATIC_ROOT to settings.py
+```
+...
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+```
+Run following (within virtual environment)
+```
+(venv) ~/aws_django$ python manage.py collectstatic
 ```
