@@ -29,6 +29,12 @@ ALLOWED_HOSTS = ['eb-django-app-dev.elasticbeanstalk.com']
 
 ```
 
+Set Environment Variables in AWS Console
+
+Elastic Beanstalk>ENVIRONMENT_NAME>Configuration>Software>Environment properties
+
+
+
 Note in requirements.txt use aws-psycopg2 rather than psycopg2
 https://pypi.org/project/aws-psycopg2/
 ```
