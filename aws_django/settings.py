@@ -72,14 +72,14 @@ WSGI_APPLICATION = 'aws_django.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-DB_PASS = os.environ['AWS_DB_PASSWORD']
+#DB_PASS = os.environ['AWS_DB_PASSWORD']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': DB_PASS,
+        'PASSWORD': 'awstest4django',#DB_PASS,
         'HOST': 'localhost',
         'PORT': '5432',
     }
