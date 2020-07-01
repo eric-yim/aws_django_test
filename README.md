@@ -4,16 +4,20 @@ Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres.
 
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html
 
-Requirement: Install Aws EB CLI
+Pre-req: Install Aws EB CLI
 
-Creates an Elastic Beanstalk application named aws_django in the specified region.
+Note in requirements.txt use aws-psycopg2 rather than psycopg2
+https://pypi.org/project/aws-psycopg2/
 
-Set up SSH.
+- - -
+### Creating Elastic Beanstalk Environment and Application
 
-Choose an existing keypair.
+Create an Elastic Beanstalk application named *aws_django* in the specified region.
+
 ```
 eb init -p python-3.6 -r us-east-2 aws_django
 ```
+Choose an existing keypair.
 
 Creates an Elastic Beanstalk Environment named aws-django-env.
 ```
@@ -28,24 +32,20 @@ If you forget the host name, check it on aws.com > services > elastic beanstalk 
 ALLOWED_HOSTS = ['eb-django-app-dev.elasticbeanstalk.com']
 
 ```
-
-Set Environment Variables in AWS Console
+- - -
+### Set Environment Variables in AWS Console.
 
 Elastic Beanstalk>ENVIRONMENT_NAME>Configuration>Software>Environment properties
 
+This is useful for storing sensitive information, which can be called with os.environ[VARIABLE] in python.
 
-
-Note in requirements.txt use aws-psycopg2 rather than psycopg2
-https://pypi.org/project/aws-psycopg2/
-```
-aws-psycopg2
-```
+- - -
 Deploy.
 ```
 eb deploy
 ```
 
-===================================================================================
+- - -
 To collect static files, add STATIC_ROOT to settings.py
 ```
 ...
