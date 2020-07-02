@@ -1,4 +1,4 @@
-# aws_django
+# aws_django_test
 
 Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres.
 
