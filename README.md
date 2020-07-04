@@ -41,6 +41,8 @@ Elastic Beanstalk>ENVIRONMENT_NAME>Configuration>Software>Environment properties
 
 This is useful for storing sensitive information, which can be called with os.environ[VARIABLE] in python.
 
+This should match the variables named in aws-django/settings.py
+
 - - -
 Deploy.
 ```
