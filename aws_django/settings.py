@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.elasticbeans
 # Application definition
 
 INSTALLED_APPS = [
+    'projects.apps.ProjectsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
