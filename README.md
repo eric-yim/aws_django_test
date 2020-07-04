@@ -4,7 +4,7 @@ Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres.
 
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html
 
-Pre-req: Install Aws EB CLI
+Pre-requisite: Install Aws EB CLI
 
 Note in requirements.txt use aws-psycopg2 rather than psycopg2
 https://pypi.org/project/aws-psycopg2/
@@ -45,14 +45,3 @@ Deploy.
 eb deploy
 ```
 
-- - -
-To collect static files, add STATIC_ROOT to settings.py
-```
-...
-STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
-```
-Run following (within virtual environment).
-```
-(venv) ~/aws_django$ python manage.py collectstatic
-```
