@@ -1,13 +1,15 @@
 # aws_django_test
 
-Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres.
+Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres. This repository contains 1 <i>application</i> named <b>projects</b> with sample <i>views</i>, <i>urls</i>, and <i>static files</i>.
 
+https://docs.djangoproject.com/en/2.1/intro/
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html
 
 Pre-requisite: Install Aws EB CLI
 
 Note in requirements.txt use aws-psycopg2 rather than psycopg2
 https://pypi.org/project/aws-psycopg2/
+
 
 - - -
 ### Creating Elastic Beanstalk Environment and Application
