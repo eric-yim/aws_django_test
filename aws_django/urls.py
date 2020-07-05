@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from projects import views
+#from django.urls import reverse
 urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),#include('projects.urls')),#views.index, name='index'),
     path('admin/', admin.site.urls),
     path('projects/', include('projects.urls')),
 ]

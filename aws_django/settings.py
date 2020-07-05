@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['yimml.com','127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'aws_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': os.path.join(BASE_DIR,'templates'),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

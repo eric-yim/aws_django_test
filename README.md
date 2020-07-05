@@ -1,13 +1,15 @@
 # aws_django_test
 
-Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres.
+Base files for a Django site deployed on AWS Elastic Beanstalk with Postgres. This repository contains 1 <i>application</i> named <b>projects</b> with sample <i>views</i>, <i>urls</i>, and <i>static files</i>.
 
+https://docs.djangoproject.com/en/2.1/intro/
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html
 
-Pre-req: Install Aws EB CLI
+Pre-requisite: Install Aws EB CLI
 
 Note in requirements.txt use aws-psycopg2 rather than psycopg2
 https://pypi.org/project/aws-psycopg2/
+
 
 - - -
 ### Creating Elastic Beanstalk Environment and Application
@@ -39,20 +41,11 @@ Elastic Beanstalk>ENVIRONMENT_NAME>Configuration>Software>Environment properties
 
 This is useful for storing sensitive information, which can be called with os.environ[VARIABLE] in python.
 
+This should match the variables named in aws-django/settings.py
+
 - - -
 Deploy.
 ```
 eb deploy
 ```
 
-- - -
-To collect static files, add STATIC_ROOT to settings.py
-```
-...
-STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
-```
-Run following (within virtual environment).
-```
-(venv) ~/aws_django$ python manage.py collectstatic
-```
