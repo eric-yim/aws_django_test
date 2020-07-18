@@ -5,6 +5,7 @@ app_name='projects'
 
 
 urlpatterns = [
+    path('test/',views.test,name='tester'),
     path('', views.IndexView.as_view(), name='index'),
     path('<str:slug>/', views.DetailView.as_view(), name='detail'),
 ]

@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Yim Machine Learning</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'projects/bootstrap.min.css' %}">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'projects/all_new.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'projects/simple-line-icons_new.css' %}">
+  <link href="{% static 'projects/fonts/googleapis_Lato.txt' %}" rel="stylesheet">
+  <link href="{% static 'projects/fonts/googleapis_Catamaran.txt' %}" rel="stylesheet">
+  <link href="{% static 'projects/fonts/googleapis_Multi.txt' %}" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="{% static 'projects/device-mockups.min.css' %}">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'projects/new-age.min.css' %}" rel="stylesheet">
+  <style>
+
+    header.masthead{position:relative;width:100%;padding-top:150px;padding-bottom:100px;color:#fff;background:url({% static 'projects/images/bg-pattern.png' %}),#7b4397;background:url({% static 'projects/images/bg-pattern.png' %}),linear-gradient(to left,#7b4397,#dc2430)}
+    
+    </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  {% block nav %}{% endblock %}
+
+{% block body_all %}{% endblock %}
+
+
+  <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>Create together!</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-facebook">
+          <a href="https://www.linkedin.com/in/yimeric/">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-twitter">
+          <a href="https://github.com/eric-yim/">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-google-plus">
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; Yim ML 2020. All Rights Reserved.</p>
+      <ul class="list-inline">
+        <!-- <li class="list-inline-item">-->
+          <!--<a href="#">Privacy</a>-->
+        <!--</li> -->
+
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'projects/jquery.min.js' %}"></script>
+  <script src="{% static 'projects/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'projects/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'projects/new-age.min.js' %}"></script>
+
+</body>
+
+</html>

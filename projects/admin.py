@@ -7,7 +7,7 @@ class ProjectAdmin(admin.ModelAdmin):
     #fields = ['url_str','pub_date', 'description']
     fieldsets = [
         ('Back',               {'fields': ['url_str','pub_date']}),
-        ('Front',               {'fields': ['description']})
+        ('Front',               {'fields': ['description','image_url','snippet','body_html']})
     ]
 
 admin.site.register(Project,ProjectAdmin)

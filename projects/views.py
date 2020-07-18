@@ -27,4 +27,5 @@ class DetailView(generic.DetailView):
     slug_field='url_str'
     slug_url_kwarg='slug'
     template_name = 'projects/detail.html'
-
+def test(request):
+    return render(request,'projects/detail_test.html')

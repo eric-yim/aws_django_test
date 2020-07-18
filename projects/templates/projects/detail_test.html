@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_all %}
+<style>
+header.masthead{
+  height:30vh;min-height:200px;padding-top:15vh;padding-bottom:0;
+  }
+
+.center_img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom:50px;
+  }
+.features a{
+  color:#843d89;
+}
+
+</style>
+
+<header class="masthead" >
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-12 my-auto">
+          <div class="header-content mx-auto">
+
+    	     <h1 class="mb-5">Test Here</h1>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <section class="features" id="about">
+    <div class="container">
+      <!-- colors purple#7c4191#843d89 red #dd2039  -->
+      <div class="row">
+        <div class="offset-lg-1 col-lg-10 ">
+          <div class="device ">
+
+          <!-- START BLOCK HERE-->
+         <style>
+           .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+           .video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+         </style>
+          <img src="/static/projects/images/traffic_segmentation.gif" class="img-fluid" alt="" style='margin-bottom:30px'>
+          <p>We estimate congestion in crowded intersections in real time. For public planning, municipalities want to understand movement of cars and vehicles. We discuss here how we use background subtraction and image segmentation to achieve that goal.</p>
+          <h3>
+            Challenges from this Camera View
+          </h3>
+          <p>
+            While existing models exist for object detection and image classification, with video feeds similar to what's pictured above, these models fail miserably.
+            Why? Existing object detection models tend to work reasonably well finding up to 100 objects on frame, if those objects are a good size relative to the frame. Here there's too many people and each person is too small.
+            Additionally, notice the camera lens is slightly curved to allow for a wider view, which is no problem for a human viewer, but difficult for models trained on straight edges.
+          
+          </p>
+          <h3>Image Segmentation!</h3>
+          <p>
+            We have to train our own model. Fun! In particular, image segmentation is ideal because it's faster than object detection and doesn't require us to have some pre-trained classifier.
+          </p>
+          <p>  
+            Thinking a little into the future, we'll run into a couple more issues. If we train a model from data at location A, it will likely fail at location B due to the differences in background. Next, we'll need a large sample of <i>labeled</i> data for the model to generalize what a background, person, or vehicle is. At the start of this project, we were given 3 days to build an initial prototype. Can you imagine labeling each person by hand - for hundreds of images?
+          </p>
+          <h3>Faster Labeling, Transferable Model</h3>
+          <p>Given the camera is stationary, we can kill two birds with one stone! When we subtract the background off the image, we are left with white blobs of people are cars. These white blobs will look the same in different locations, so training at location A can easily translate to inference at location B. However, here's the real kicker: we can now label images much faster! </p>
+
+          <div class='row'>
+          <div class="col-lg-6"><img src="/static/projects/images/traffic_bg_0.png" class="img-fluid center_img" alt="" style='margin-bottom:30px'></div>
+          
+          <div class="col-lg-6"><img src="/static/projects/images/traffic_bgl_0.png" class="img-fluid center_img" alt="" style='margin-bottom:30px'></div>
+          </div>
+          <p>We obtain the background by taking an average (or mode) of previous frames. There may still be some random incorrect pixels (for example, if a person stood somewhere quite long), but the backgroundless image is still reasonbly good (and perhaps the person who idles forever should be considered part of the background).</p>
+          <p>To get the black and white blobs representing "motion" on screen, we subtract the background from a new frame, and apply some threshold, such that each pixel now becomes either a zero or one.</p>
+          <div class='row'>
+            <div class="col-lg-4"><img src="/static/projects/images/shibuya01_16999a.png" class="img-fluid center_img" alt="" style='margin-bottom:30px'></div>
+            
+            <div class="col-lg-4"><img src="/static/projects/images/shibuya01_16999b.png" class="img-fluid center_img" alt="" style='margin-bottom:30px'></div>
+            <div class="col-lg-4"><img src="/static/projects/images/shibuya01_16999c.png" class="img-fluid center_img" alt="" style='margin-bottom:30px'></div>
+            </div>
+          <p>Lastly, we need to differentiate between cars and people. We use a photo editor to delete the cars off (by hand), and we generate a car image (programatically) by comparing what was deleted off. 
+            We then use these three images to train an image segmentation neural network. The first image is the input, and two other images are the target outputs.
+          </p>
+          <p>Note this: the only by-hand labeling was the car deletion. For comparison, labeling an original RBG image by hand took us about 1 hour per image; deleting cars by hand takes us about 1 minute per image.
+            <u>We reduced labeling time from <i>one hour</i> to <i>one minute!</i></u>
+          </p>
+          <h3>High-Level + Low-Level Information</h3>
+          <p>For image segmentation, we need a framework that can capture both high-level and low-level information and merge the information into the prediction. Hence, frameworks like the UNet are often used. In our case, we used the neural network from <a href="https://arxiv.org/pdf/1906.00446.pdf">the VQ-VAE-2 paper</a> (without the PixelSnail). 
+            It would be worth testing different frameworks for further study.</p>
+          <img src="/static/projects/images/ss_vqvae.png" class="img-fluid center_img" alt="" style='margin-bottom:30px'>
+          <h3>Results</h3>
+          <p>
+            Image segmentation is fast! On a desktop GPU, one runthrough of the neural network can happen faster than the framerate of the video feed. The project will inevitably have other constraints, but the neural network here won't be the bottleneck. The video below shows a heat map of just the people.
+          </p>
+          <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/JkBGTsRYrm0?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+          <!-- ENDBLOCK -->
+          </div>
+        </div>
+	      
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+{% endblock %}
