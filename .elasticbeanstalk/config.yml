@@ -1,0 +1,20 @@
+branch-defaults:
+  master:
+    environment: aws-django-env
+    group_suffix: null
+  test:
+    environment: aws-django-env
+global:
+  application_name: aws_django
+  branch: null
+  default_ec2_keyname: ec2-demo
+  default_platform: Python 3.6
+  default_region: us-east-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  repository: null
+  sc: git
+  workspace_type: Application
