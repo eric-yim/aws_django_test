@@ -96,9 +96,11 @@
               </div>
 		<a href="{% url 'projects:detail' p.url_str %}">
                   <h4>{{ p.description }}</h4></a>
-
+                  <div class='text-center'>
                   <p >{{p.snippet}}</p>
-		
+                    <a href="{% url 'projects:detail' p.url_str %}" class="btn btn-outline btn-xl">Read More</a>
+                  
+                  </div>
                 </div>
                 
               </div>
