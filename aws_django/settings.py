@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-#import env_vars
+import env_vars
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['yimml.com','127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.
 # Application definition
 
 INSTALLED_APPS = [
+    'sendemail.apps.SendemailConfig',
     'projects.apps.ProjectsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,3 +127,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_ROOT = 'static'
 STATIC_ROOT=os.path.join(BASE_DIR,'static/')
+
+#Email
+DEFAULT_FROM_EMAIL = 'info@yimml.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
+EMAIL_HOST_USER = os.environ['SMTP_USER']
+EMAIL_HOST_PASSWORD = os.environ['SMTP_PASSWORD']
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_DESTINATION = os.environ['EMAIL_DESTINATION']

@@ -21,4 +21,5 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),#include('projects.urls')),#views.index, name='index'),
     path('admin/', admin.site.urls),
     path('projects/', include('projects.urls')),
+    path('contact/',include('sendemail.urls')),
 ]
