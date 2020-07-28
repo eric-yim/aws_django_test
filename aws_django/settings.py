@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['yimml.com','127.0.0.1','18.188.211.95','3.128.129.186']
+ALLOWED_HOSTS = ['yimml.com','127.0.0.1','localhost','18.188.211.95','3.128.129.186']
 
 
 # Application definition
