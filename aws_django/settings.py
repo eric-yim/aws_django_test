@@ -129,7 +129,7 @@ STATIC_ROOT='/static/'#os.path.join(BASE_DIR,'static/')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 #Email
 DEFAULT_FROM_EMAIL = 'info@yimml.com'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
 EMAIL_HOST_USER = os.environ['SMTP_USER']
