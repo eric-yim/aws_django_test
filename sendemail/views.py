@@ -11,10 +11,11 @@ def contactView(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
             
-            subject = "Name: {}, Email: {}".format(subject,from_email)
+            from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
+            message= "Name: {}\n Email: {}\nMessage: {}".format(subject,from_email,message)
+            subject = "YimML contact: {}".format(subject)
             try:
                 send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_DESTINATION],fail_silently=False)
             except BadHeaderError:
