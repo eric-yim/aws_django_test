@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nav %}
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">Yim Machine Learning</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+{% block body_all %}
+<style>
+.features a{
+  color:#7c4191 ;
+} 
+.center_img_container img{
+  border-style:solid;
+  border-color:#7c4191;
+  border-width: 2px;
+  width:100%;
+  margin-bottom:20px;
+}
+.bg-third .btn{
+  background-color:#ffc44b;
+}
+
+</style>
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">Eric Yim<br>Machine Learning Engineer</h1>
+            	<a href="#projects" class="btn btn-outline btn-xl js-scroll-trigger">See My Work!</a> 
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+            <!-- <div class="device-mockup iphone6_plus portrait white">-->
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <!--<img src="img/demo-screen-1.jpg" class="img-fluid" alt="">-->
+                </div>
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            <!-- </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-primary text-center features" id="projects">
+    <div class="container">
+      <div class="text-center">
+        <h2>Deep Learning Solutions</h2>
+        <p class="">Check out what Yim can do for your business!</p>
+        <hr>
+      </div>
+      <div class="row">
+
+{% if projects %}
+
+        <div class="col-lg-12  my-auto" >
+          <div class="container-fluid">
+            <div class="row">
+
+
+{% for p in projects %}
+
+              <div class="col-lg-4">
+		
+                <div class="feature-item">
+		            <div class='center_img_container'>
+                {{p.image_url | safe}}  
+              </div>
+		<a href="{% url 'projects:detail' p.url_str %}">
+                  <h4>{{ p.description }}{{a}}</h4></a>
+                  <div class='text-center'>
+                  <p >{{p.snippet}}</p>
+                    <a href="{% url 'projects:detail' p.url_str %}" class="btn btn-outline btn-xl">Read More</a>
+                  
+                  </div>
+                </div>
+                
+              </div>
+{% endfor %}
+
+            </div>
+
+          </div>
+        </div>
+
+{% endif %}
+
+
+        
+      </div>
+    </div>
+  </section>
+ <section class="bg-third text-center features" >
+    <div class="container">
+      <div class="text-center">
+        <h2>End-to-End Pipelines</h2>
+        <p class="">Training models is nice, but building real-world solutions is better.</p>
+        <hr>
+      </div>
+      <div class="row">
+
+{% if projects %}
+
+
+
+        <div class="col-lg-12  my-auto" >
+          <div class="container-fluid">
+            <div class="row">
+
+
+{% for p in sides %}
+              <div class="col-lg-4">
+		
+                <div class="feature-item">
+		            <div class='center_img_container'>
+                {{p.image_url | safe}}  
+              </div>
+		<a href="{% url 'projects:detail' p.url_str %}">
+                  <h4>{{ p.description }}</h4></a>
+                  <div class='text-center'>
+                  <p >{{p.snippet}}</p>
+                    <a href="{% url 'projects:detail' p.url_str %}" class="btn btn-outline btn-xl">Read More</a>
+                  
+                  </div>
+                </div>
+                
+              </div>
+{% endfor %}
+
+            </div>
+
+          </div>
+        </div>
+
+{% endif %}
+
+
+        
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="download features" id="about">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-4 my-auto">
+          <div class="device-container">
+            <div>			<!-- <div class="device-mockup iphone6_plus portrait white"> -->
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <img src="{% static 'projects/images/10670092-original.jfif' %}" class="img-fluid center_img" alt="">
+                </div>
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+	      <div class="col-lg-8 mx-auto">
+          <h2 class="section-heading">We'll handle it!</h2>
+          
+            
+
+              
+            
+            
+          
+          <p>Eric is excited about how AI/ML is changing the world. 
+            He has a diverse machine learning engineering background, creating solutions for financial, automotive, and legal industries.
+            He loves keeping up with innovative research. Still, he is always focused on real-world results.</p>
+             <p>His number-one priority: Build something that works!</p>
+          </p>
+          
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+<style>
+section.cta{position:relative;padding:250px 0;background-image:url({% static 'projects/images/bg-cta.jpg' %})
+</style>
+
+  <section class="cta">
+    <div class="cta-content">
+      <div class="container">
+        <h2>Stop searching.<br>Start building.</h2>
+        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section>
+{% endblock %}
+  

@@ -14,18 +14,23 @@ from django.views import generic
 #    return render(request,'projects/detail.html',context)
     
 
-class IndexView(generic.ListView):
-    template_name = 'projects/index.html'
-    context_object_name = 'projects'
-
-    def get_queryset(self):
-        """Return the last five published questions."""
-        #print(Project.objects.order_by('-pub_date')[:5])
-        return Project.objects.order_by('-pub_date')[:5]
+#class IndexView(generic.ListView):
+class IndexView(generic.base.TemplateView):
+    template_name = 'project_index.html'
+    #context_object_name = 'projects'
+    def get_context_data(self,**kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['projects']=Project.objects.filter(category='ML').order_by('-pub_date')[:5]
+        context_data['sides']=Project.objects.filter(category='support').order_by('-pub_date')[:5]
+        return context_data
+    #def get_queryset(self):
+    #    """Return the last five published questions."""
+    #    #print(Project.objects.order_by('-pub_date')[:5])
+    #    return Project.objects.filter(category='ML').order_by('-pub_date')[:5]
 class DetailView(generic.DetailView):
     model = Project
     slug_field='url_str'
     slug_url_kwarg='slug'
-    template_name = 'projects/detail.html'
+    template_name = 'project_detail.html'
 def test(request):
-    return render(request,'projects/detail_test.html')
+    return render(request,'project_test.html')
