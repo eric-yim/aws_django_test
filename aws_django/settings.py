@@ -134,6 +134,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
 EMAIL_HOST_USER = os.environ['SMTP_USER']
 EMAIL_HOST_PASSWORD = os.environ['SMTP_PASSWORD']
-EMAIL_PORT = 465
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_DESTINATION = os.environ['EMAIL_DESTINATION']
