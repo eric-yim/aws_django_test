@@ -14,7 +14,7 @@ def contactView(request):
             
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            message= "Name: {}\n Email: {}\nMessage: {}".format(subject,from_email,message)
+            message= "Name: {}\nEmail: {}\nMessage: {}".format(subject,from_email,message)
             subject = "YimML contact: {}".format(subject)
             try:
                 send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_DESTINATION],fail_silently=False)
