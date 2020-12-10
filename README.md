@@ -12,6 +12,14 @@ https://pypi.org/project/aws-psycopg2/
 
 
 - - -
+### Minimum Operation
+
+```
+python3 manage.py createsuperuser
+python3 manage.py migrate
+python3 manage.py runserver
+```
+
 ### Creating Elastic Beanstalk Environment and Application
 
 Create an Elastic Beanstalk application named *aws_django* in the specified region.

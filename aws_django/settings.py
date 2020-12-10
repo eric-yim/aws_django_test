@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import env_vars
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['yimml.com','127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1','aws-django-env.eba-pbdbyipb.us-east-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'aws_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': os.path.join(BASE_DIR,'templates'),
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,17 +75,22 @@ WSGI_APPLICATION = 'aws_django.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 #DB_PASS = 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': os.environ['RDS_USER'],
+#         'PASSWORD': os.environ['RDS_PASSWORD'],
+#         'HOST': os.environ['RDS_IP'],
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': os.environ['RDS_USER'],
-        'PASSWORD': os.environ['RDS_PASSWORD'],
-        'HOST': os.environ['RDS_IP'],
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
